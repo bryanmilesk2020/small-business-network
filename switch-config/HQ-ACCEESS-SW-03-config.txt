@@ -1,0 +1,14 @@
+switch>enable
+switch#config t
+switch(config)#hostname HQ-ACCESS-SW-03
+HQ-ACCESS-SW-03(config)#banner motd $
+**********AUTHORIZED PERSONNEL ONLY*************
+$
+HQ-ACCESS-SW-03#config t
+HQ-ACCESS-SW-03(config)#line con 0
+HQ-ACCESS-SW-03(config-line)#password pmrT.06!3
+HQ-ACCESS-SW-03(config-line)#login
+HQ-ACCESS-SW-03(config-line)#exit
+HQ-ACCESS-SW-03(config)#enable secret sZ0O3b_
+HQ-ACCESS-SW-03(config)#exit
+HQ-ACCESS-SW-03#copy run startup-config
