@@ -31,3 +31,12 @@ HQ-ACCESS-SW-03(config-if)#switchport mode access vlan 50
 HQ-ACCESS-SW-03(config-if)#exit
 HQ-ACCESS-SW-03(config)#exit
 HQ-ACCESS-SW-03#copy running-config startup-config
+
+HQ-ACCESS-SW-03>enable
+HQ-ACCESS-SW-03#config t
+HQ-ACCESS-SW-03(config)#interface FastEthernet0/1
+HQ-ACCESS-SW-03(config-if)#switchport mode trunk
+HQ-ACCESS-SW-03(config-if)#swtichport trunk allowed vlan 50,60
+HQ-ACCESS-SW-03(config-if)#exit
+HQ-ACCESS-SW-03(config)#exit
+HQ-ACCESS-SW-03#copy running-config startup-config
