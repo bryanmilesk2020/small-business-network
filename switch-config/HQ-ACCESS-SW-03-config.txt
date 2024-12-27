@@ -1,0 +1,33 @@
+switch>enable
+switch#config t
+switch(config)#hostname HQ-ACCESS-SW-03
+HQ-ACCESS-SW-03(config)#banner motd $
+**********AUTHORIZED PERSONNEL ONLY*************
+$
+HQ-ACCESS-SW-03#config t
+HQ-ACCESS-SW-03(config)#line con 0
+HQ-ACCESS-SW-03(config-line)#password pmrT.06!3
+HQ-ACCESS-SW-03(config-line)#login
+HQ-ACCESS-SW-03(config-line)#exit
+HQ-ACCESS-SW-03(config)#enable secret sZ0O3b_
+HQ-ACCESS-SW-03(config)#exit
+HQ-ACCESS-SW-03#copy run startup-config
+
+HQ-ACCESS-SW-03>enable
+HQ-ACCESS-SW-03#config t
+HQ-ACCESS-SW-03(config)#vlan 60
+HQ-ACCESS-SW-03(config-vlan)#name IT
+HQ-ACCESS-SW-03(config-vlan)#exit
+HQ-ACCESS-SW-03(config)#vlan 50
+HQ-ACCESS-SW-03(config-vlan)#name HR
+HQ-ACCESS-SW-03(config-vlan)#exit
+HQ-ACCESS-SW-03(config)#interface FastEthernet1/1
+HQ-ACCESS-SW-03(config-if)#switchport mode access
+HQ-ACCESS-SW-03(config-if)#switchport access vlan 60
+HQ-ACCESS-SW-03(config-if)#exit
+HQ-ACCESS-SW-03(config)#interface FastEthernet3/1
+HQ-ACCESS-SW-03(config-if)#switchport mode access
+HQ-ACCESS-SW-03(config-if)#switchport mode access vlan 50
+HQ-ACCESS-SW-03(config-if)#exit
+HQ-ACCESS-SW-03(config)#exit
+HQ-ACCESS-SW-03#copy running-config startup-config
