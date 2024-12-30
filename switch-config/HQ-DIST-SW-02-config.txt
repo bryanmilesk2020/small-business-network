@@ -1,0 +1,14 @@
+Switch>enable
+Switch#config t
+Switch (config) #hostname HQ-DIST-SW-02
+HQ-DIST-SW-02 (config) #banner motd $
+**********************AUTHORIZED PERSONNEL ONLY**************************
+$
+HQ-DIST-SW-02(config) #line con 0
+HQ-DIST-SW-02(config-line)#password ex7_0Ca
+HQ-DIST-SW-02(config-line)#login
+HQ-DIST-SW-02(config-line)#exit
+HQ-DIST-SW-02(config)#enable secret z90.3b!
+HQ-DIST-SW-02(config)#exit
+HQ-DIST-SW-02#copy running-config startup-config
+
