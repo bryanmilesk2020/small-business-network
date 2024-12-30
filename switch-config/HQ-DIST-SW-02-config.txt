@@ -12,3 +12,18 @@ HQ-DIST-SW-02(config)#enable secret z90.3b!
 HQ-DIST-SW-02(config)#exit
 HQ-DIST-SW-02#copy running-config startup-config
 
+HQ-DIST-SW-02>enable 
+HQ-DIST-SW-02#config t
+HQ-DIST-SW-02(config)#interface fa2/1
+HQ-DIST-SW-02(config-if)#switchport mode trunk
+HQ-DIST-SW-02(config-if)#switchport trunk allowed vlan 50,60
+HQ-DIST-SW-02(config-if)#exit
+HQ-DIST-SW-02(config)#interface fa1/1
+HQ-DIST-SW-02(config-if)#switchport mode trunk
+HQ-DIST-SW-02(config-if)#exit
+HQ-DIST-SW-02(config)#interface fa0/1
+HQ-DIST-SW-02(config-if)#switchport mode trunk
+HQ-DIST-SW-02(config-if)#exit
+HQ-DIST-SW-02(config)#exit
+HQ-DIST-SW-02#copy running-config startup-config
+
